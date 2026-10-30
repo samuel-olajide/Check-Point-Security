@@ -1,4 +1,4 @@
-<img width="1362" height="606" alt="image" src="https://github.com/user-attachments/assets/c31197b9-ea1c-47ec-9771-ea7e8973a70a" /># Part A 1: Prepare VMware and the private network
+# Part A 1: Prepare VMware and the private network
 
 ## Step 1: Install the Windows tool
 ### A1 
@@ -45,15 +45,29 @@ R82 SmartConsole desktop
 # Part B: Explain the Check Point architecture
 
 ## B1: Explain the architecture
+Check Point uses a three-tier architecture consisting of SmartConsole, the Security Management Server, and the Security Gateway.
+1. SmartConsole (Windows): Used by administrators to create and manage security policies.
+2. Security Management Server: The Security Management Server stores policies and network objects.
+3. Security Gateway: The Security Gateway protects the network by enforcing policies.
 
 ## B2: Explain management services and deployment
+The Security Management Server performs several functions:
+  1. Database: Stores security policies, objects, and configurations.
+  2. Log Server: Collects and stores security logs from gateways.
+  3. Monitoring: Displays CPU, memory, disk usage, and traffic statistics.
 
 ## B3: Choose the correct administration interface
 
 ## B4: Explain security features and policy handling
+1. Firewall: Controls network traffic based on security rules. For example, it can block unauthorised access to an organisation's internal network.
+2. URL Filtering: Controls access to websites based on categories. For example, it can block malicious or inappropriate websites.
+Publishing and installing policies are separate actions because publishing saves changes to the management database and makes them available to other administrators, while policy installation distributes the published policy to the Security Gateway, where it becomes active and is enforced.
 
 ## B5: Interpret your own lab evidence
-
+1. VMnet8 uses a private virtual network, so its IP addresses can remain unchanged even when the computer switches Wi-Fi networks.
+2. VMware DHCP does not change the A-SMS address because its network interface is configured with a static IP address.
+3. A successful ping confirms basic network reachability through ICMP, but it does not confirm that SmartConsole can connect. A successful SmartConsole login confirms that the management service is accessible and the credentials are accepted.
+4. An unavailable gateway object or empty log view does not automatically indicate a fault. Further checks are necessary because the object may be missing or incorrectly configured, while logs may be absent due to filters, logging settings, or lack of traffic.
 
 # Part C: Explore Gaia Portal
 ## C1: Inspect the system overview
